@@ -8,6 +8,7 @@ public class GuessNumber {
         System.out.println(
                 "You have to guess a number between 1 and 100. You'll have limited choices based on the level you choose. Good Luck!");
 
+        // A never ending loop for a never ending game until the user press '0'.
         while (true) {
             System.out.println("\n\t\t\t\t\tDifficulty Level");
             System.out.print("Easy: Press '1'\t");
@@ -21,12 +22,12 @@ public class GuessNumber {
             Random randomNum = new Random(); // Instance of class Random.
             int secretNum = randomNum.nextInt(100) + 1; // generate a number between 1 and 100
 
-            if (level == 1) {
+            if (level == 1) { // Easy Level
                 System.out.println("You have 10 chances, guess the number.");
                 int chanceLeft = 10;
                 for (int i = 0; i < 10; i++) {
                     System.out.print("Enter Number: ");
-                    int n = sc.nextInt(); // guess the number using user input
+                    int n = sc.nextInt();
                     if (secretNum == n) {
                         System.out.println("\nCongratulation! You guess the right number.");
                         System.out.println(n + " is the right answer");
@@ -35,6 +36,7 @@ public class GuessNumber {
                         break;
                     } else {
                         System.out.println("\nNope! This is not the right answer.");
+                        // Hint: Player number is higher or lower than the secret number.
                         if (secretNum < n) {
                             System.out.println("Number is smaller than  " + n);
                             System.out.println("Try again!");
@@ -42,7 +44,7 @@ public class GuessNumber {
                             System.out.println("Number is greater than  " + n);
                             System.out.println("Try again!");
                         }
-                        chanceLeft--;
+                        chanceLeft--; // decreases chance with attempt taken by player
                         System.out.println("\nChance Left: " + chanceLeft + "\n");
                         if (chanceLeft == 0) {
                             System.out.println("You are not able to find right answer.");
@@ -51,12 +53,12 @@ public class GuessNumber {
                         }
                     }
                 }
-            } else if(level == 2) {
+            } else if (level == 2) { // Medium Level
                 System.out.println("You have 6 chances, guess the number.");
                 int chanceLeft = 6;
                 for (int i = 0; i < 6; i++) {
                     System.out.print("Enter Number: ");
-                    int n = sc.nextInt(); // guess the number using user input
+                    int n = sc.nextInt();
                     if (secretNum == n) {
                         System.out.println("\nCongratulation! You guess the right number.");
                         System.out.println(n + " is the right answer");
@@ -65,6 +67,7 @@ public class GuessNumber {
                         break;
                     } else {
                         System.out.println("\nNope! This is not the right answer.");
+                        // Hint: Player number is higher or lower than the secret number.
                         if (secretNum < n) {
                             System.out.println("Number is smaller than  " + n);
                             System.out.println("Try again!");
@@ -81,12 +84,12 @@ public class GuessNumber {
                         }
                     }
                 }
-            } else if(level == 3) {
+            } else if (level == 3) { // Hard Level
                 System.out.println("You have 3 chances, guess the number.");
                 int chanceLeft = 3;
                 for (int i = 0; i < 3; i++) {
                     System.out.print("Enter Number: ");
-                    int n = sc.nextInt(); // guess the number using user input
+                    int n = sc.nextInt();
                     if (secretNum == n) {
                         System.out.println("\nCongratulation! You guess the right number.");
                         System.out.println(n + " is the right answer");
@@ -95,6 +98,7 @@ public class GuessNumber {
                         break;
                     } else {
                         System.out.println("\nNope! This is not the right answer.");
+                        // Hint: Player number is higher or lower than the secret number.
                         if (secretNum < n) {
                             System.out.println("Number is smaller than  " + n);
                             System.out.println("Try again!");
@@ -111,7 +115,7 @@ public class GuessNumber {
                         }
                     }
                 }
-            } else if (level == 0) {
+            } else if (level == 0) { // Exit Game
                 System.out.println("Thanks for Playing!");
                 System.exit(0);
             } else {

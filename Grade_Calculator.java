@@ -1,32 +1,46 @@
 import java.util.Scanner;
+import java.text.DecimalFormat;
 
 public class Grade_Calculator {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("\n\t\t\tGrade Calculator");
+        // Get number of subject from user
         System.out.println("How many subject do you hava?");
         int n = sc.nextInt();
 
-        int marks, totMarks = 0;
+        float marks, totMarks = 0;
 
+        // Input marks from user
         System.out.println("\nEnter your marks below");
         for (int i = 0; i < n; i++) {
             System.out.print("Subject " + (i + 1) + ": ");
-            marks = sc.nextInt();
+            // check number is  non-numeric value or not
+            while (!sc.hasNextFloat()) { 
+                System.out.print("Invalid input. Try Again! \nEnter a valid number: ");  
+                sc.next(); // clear the invalid input
+            }
+            marks = sc.nextFloat();
             // check marks is invalid or not
-            while (marks < 0 || marks > 100) {
+            while (marks < 0 || marks > 100) { // loop is continue until the marks is betwen 1-100
                 System.out.println("Invalid Marks. Please enter marks between 1-100");
                 System.out.print("Subject " + (i + 1) + ": ");
-                marks = sc.nextInt();
+                marks = sc.nextFloat();
             }
             totMarks += marks;
         }
+        sc.close();
+        float avgMarks = totMarks / n;
 
-        int avgMarks = totMarks / n;
+        DecimalFormat df = new DecimalFormat("#.##"); // Instance of class "DecimalFormat"
+        String formattedTotal = df.format(totMarks); // Formatting total marks with two decimal places
+        String formattedAvg = df.format(avgMarks); // Formatting average marks with two decimal places
+
         System.out.println("\nResult: ");
-        System.out.println("Total Marks: " + totMarks + " out of " + 100 * n + "\t\tAverage Marks: " + avgMarks);
+        System.out.println(
+                "Total Marks: " + formattedTotal + " out of " + 100 * n + "\t\tAverage Marks: " + formattedAvg);
 
-        switch (avgMarks / 10) {        // /10 to give the range of 10 number each
+        switch ((int) avgMarks / 10) { // /10 to give the range of 10 each
             case 10:
             case 9:
                 System.out.println("Grade: A+");

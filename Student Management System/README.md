@@ -13,6 +13,8 @@ Meanwhile, the compiled output files will be generated in the `bin` folder by de
 
 > If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
 
-## Dependency Management
+## About Project
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+During my online internship at CodSoft, I took on a solo project to create a Student Management System (SMS). With a focus on simplicity, I built features to add, remove, update, and view student details. Using Java, I crafted an easy-to-use interface for smooth navigation. I also set up a database backend using MySQL and JDBC for efficient data handling. Working remotely, I learned to manage my time well and communicate effectively with mentors. This experience not only boosted my tech skills but also taught me independence and resilience.
+
+Special thanks to CodSoft, my colleagues, ChatGTP, BlockBox, and invaluable open resources like StackOverflow and YouTube tutorials for enhancing the efficiency of my code.
